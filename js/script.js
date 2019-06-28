@@ -5,3 +5,19 @@ weekdays.forEach(day => {
 	daySpan.innerText = day;
 	weekdaysTarget.append(daySpan);
 });
+
+function setTime(){
+	var currentTime = moment().format("HH:mm:ss")
+	currentTime.split("").forEach(function(num, index){
+		var numArrays = ["zero","one","two","three","four","five","six","seven","eight","nine"]
+		var currentNum = numArrays[num]
+		if (!currentNum){
+			return;
+		}
+		document.querySelectorAll(".digits div")[index].className = currentNum
+	})
+}
+
+setInterval(function(){
+	setTime()
+},1000)
