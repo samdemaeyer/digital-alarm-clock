@@ -15,5 +15,24 @@ function setTime() {
 		document.querySelectorAll(".digits div")[index].className = foundWord;
 	});
 }
-setTime();
-setInterval(setTime, 1000);
+
+function init(){
+	const divs = []
+	for (let i = 1; i <= 8; i++){
+		const div = document.createElement('div');
+		if (i % 3 === 0){
+			div.className = "dots";
+		} else {
+			for (let j = 1; j <= 7; j++){
+				const span = document.createElement('span');
+				span.className = `d${j}`;
+				div.appendChild(span);
+			}
+		}
+		document.querySelector('.digits').appendChild(div);
+	}
+	setTime();
+	setInterval(setTime, 1000);
+}
+
+init();
